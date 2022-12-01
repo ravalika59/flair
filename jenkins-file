@@ -1,1 +1,23 @@
+pipeline{
 
+	agent any
+	
+stages{
+
+
+stage('git_clone') {
+	echo"git_clone"
+
+git branch: 'jenkins-pipeline', credentialsId: 'd575ea93-26d2-4f34-853f-c92e50f54797', url: 'https://github.com/ravalika59/flair.git'
+
+stage('Maven_Build') {
+    echo "Maven_Build"
+	
+	sh 'mvn test'
+    
+}
+}
+
+
+
+}
